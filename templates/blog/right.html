@@ -1,0 +1,74 @@
+<aside class="myaside">
+    <!--关注我-->
+    <div class="focus-me bg-color animation-div">
+        <h4 class="index-title"><i class="el-heart"></i>关注我
+            <small>Focus Me</small>
+        </h4>
+        <div class="xiangguan">
+
+            <div>
+                <a href="{% url 'resume' %}" target="_blank" >
+                    <i><img width="40" height="40" src="/static/images/resume.png"></i>
+                </a><span>个人简历</span>
+            </div>
+            <div><a href="{% url 'weixin' %}" target="_blank">
+                <i><img width="40" height="40" src="/static/images/weixin.png"></i>
+            </a><span>微信</span>
+            </div>
+            <div>
+                <a href="https://github.com/chenhuajun00?tab=projects" target="_blank">
+                    <i><img width="40" height="40" src="/static/images/github.png"></i>
+                </a><span>GitHub</span>
+            </div>
+            <div>
+                <a href="{% url 'download' %}" target="_blank">
+                    <i><img width="40" height="40" src="/static/images/download.png"></i>
+                </a><span>下载中心</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!--搜索-->
+    <div class="search animation-div">
+        <form action="{% url "blog:search" %}" method="get">
+            <div class="search-index">
+                <input name="key" type="text" placeholder="请输入关键字" onfocus="this.placeholder=''"
+                       onblur="this.placeholder='请输入关键字'"/>
+                <i class="el-search"><input value=" " type="submit"/></i>
+            </div>
+        </form>
+    </div>
+
+    <!--最新更新-->
+    <div class="clos-new bg-color animation-div">
+        <h4 class="index-title"><i class="el-bulb"></i>最新资讯
+            <small>Latest News</small>
+        </h4>
+        <ul>
+            <li><i class="el-cloud"></i>
+                <iframe id="tianqi" scrolling="no" frameborder="0" allowtransparency="true"
+                        src="http://i.tianqi.com/index.php?c=code&a=getcode&id=34&h=25&w=280"></iframe>
+            </li>
+
+            <li><i class="el-calendar"></i>历史今天：
+                <iframe src="http://www.todayonhistory.com/code/6.html?w=250&h=20&bky=dotted&bks=0&fs=14&fc=#565656&hg=14&ie=0&xhx=none&sd=300&px=3&len=0&sk=1&n=0"
+                        width="250" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+            </li>
+        </ul>
+    </div>
+
+    <!--标签-->
+    <div class="cloud bg-color animation-div">
+        <h4 class="index-title"><i class="el-tags"></i>标签云
+            <small>Tags Clouds</small>
+        </h4>
+        <ul id="3dcloud">
+            {% for tag in tag_list %}
+                <li><a href="{% url "blog:tag" name=tag.tag_name %}" title="标签：{{ tag.tag_name }} ">{{ tag.tag_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    </div>
+</aside>
